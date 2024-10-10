@@ -1,0 +1,13 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "John Doe",
+      "email": "johndoe@gmail.com",
+      "address": "Xuan Mai - Ha Dong",
+      "phone": "912345678",
+      "status": true,
+      "create_at": "2024-10-10"
+    }
+  ]
+}
