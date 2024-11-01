@@ -22,6 +22,8 @@ import B10Contact from "@/views/B10Contact.vue";
 import B10Projects from "@/views/B10Projects.vue";
 import B10Detail from "@/views/B10Detail.vue";
 import B10 from "@/views/B10.vue";
+import B11Register from "@/views/B11Register.vue";
+import B11Login from "@/views/B11Login.vue";
 
 const routes = [
   {
@@ -135,6 +137,16 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/B11Login",
+    component: B11Login,
+    
+  },
+  {
+    path: "/B11Register",
+    component: B11Register,
+
+  }
 ];
 
 const router = createRouter({

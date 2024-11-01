@@ -47,13 +47,25 @@
       </v-table> </main
     ><teleport to="body"
       ><Modal
+        v-if="isShowModal"
         :toggleModal
         :isShowModal
         :getAllProduct
         :id="currentId"
-        v-if="isShowModal"
       />
-      <Form v-if="isShowForm" :products :toggleForm :getAllProduct />
+      <Form
+        v-if="isShowForm"
+        :id="currentId"
+        :products
+        :toggleForm
+        :getAllProduct
+      >
+        <template #header>
+          <h2 class="text-xl">{{
+            isEdit ? "Sửa sản phẩm" : "Thêm sản phẩm"
+          }}</h2>
+        </template>
+      </Form>
     </teleport>
   </div>
 </template>
@@ -65,8 +77,8 @@ const products = ref([]);
 const isShowModal = ref(false);
 const currentId = ref(0);
 const isShowForm = ref(false);
+const isEdit = ref(false);
 
-const addProduct = () => {};
 const getAllProduct = async () => {
   const res = await fetch("http://localhost:8080/products");
   const data = await res.json();
@@ -78,8 +90,10 @@ const toggleModal = (id) => {
   currentId.value = id;
 };
 
-const toggleForm = () => {
+const toggleForm = (is, id) => {
   isShowForm.value = !isShowForm.value;
+  isEdit.value = is;
+  currentId = id;
 };
 
 const getProduct = async (id) => {

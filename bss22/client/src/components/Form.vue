@@ -3,7 +3,9 @@
     class="w-full z-50 bg-[#0000002c] flex justify-center items-center h-screen absolute top-0 left-0"
   >
     <v-form @submit="addProduct" class="bg-white rounded w-1/3 p-5">
-      <h2 class="text-2xl pb-4">Thêm sản phẩm</h2>
+      <h2 class="text-2xl pb-4">
+        <slot name="header"></slot>
+      </h2>
       <v-text-field
         v-model="product.name"
         label="Tên"
@@ -68,7 +70,7 @@ const addProduct = (e) => {
   if (found) {
     return (sameName.value = true);
   }
-  sameName.value = false
+  sameName.value = false;
   if (product.image === "" || product.price === 0 || product.name === "") {
     return;
   }

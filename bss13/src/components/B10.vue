@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="p-4">
     <v-card-title>Item</v-card-title>
     <v-card-text>
       <v-data-table
@@ -10,7 +10,11 @@
         items-per-page="5"
       >
         <template v-slot:item.status="{ item }">
-          <v-chip :color="getStatusColor(item.status)" dark class="white--text">
+          <v-chip
+            :color="getStatusColor(item.status)"
+            dark
+            class="white--text text-xl font-bold"
+          >
             {{ item.status }}
           </v-chip>
         </template>
@@ -79,12 +83,4 @@ const getStatusColor = (status) => {
   }
 };
 </script>
-<style scoped>
-.v-card {
-  padding: 20px;
-}
-.v-chip {
-  font-size: 12px;
-  font-weight: bold;
-}
-</style>
+<style scoped></style>
